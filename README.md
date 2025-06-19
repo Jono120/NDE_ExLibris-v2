@@ -1,4 +1,7 @@
-# CustomModule
+# NDE Version
+This is the development of the Next Discovery Experience for Te Waharoa (Primo), it is developed based on the customisations and settings of the build packages from ExLibris.
+It is the first iteration of the new builds based on this user experience, and there will be future additions made to these.
+
 
 ### Overview
 The NDE Customization package offers options to enhance and extend the functionality of Primo’s New Discovery Experience (NDE). You can add and develop your own components, customize theme templates, and tailor the discovery interface to your specific needs.
@@ -95,74 +98,6 @@ There are two options for setting up your local development environment: configu
   
 ---
 
-## Step 4: Code Scaffolding and Customization
-
-### Add Custom Components
-1. Create custom components by running:
-    ```bash
-    ng generate component <ComponentName>
-    ```
-    Example:
-    ```bash
-    ng generate component RecommendationsComponent
-    ``` 
-
-2. Update `selectorComponentMap` in `customComponentMappings.ts` to connect the newly created components:
-    ```typescript
-    export const selectorComponentMap = new Map<string, any>([
-      ['nde-recommendations-before', RecommendationsComponentBefore],
-      ['nde-recommendations-after', RecommendationsComponentAfter],
-      ['nde-recommendations-top', RecommendationsComponentTop],
-      ['nde-recommendations-bottom', RecommendationsComponentBottom], 	  
-      ['nde-recommendations', RecommendationsComponent],
-      // Add more pairs as needed
-    ]);
-    ```
-
-3. Customize the component’s `.html`, `.ts`, and `.scss` files as needed:
-    - `src/app/recommendations-component/recommendations-component.component.html`
-    - `src/app/recommendations-component/recommendations-component.component.ts`
-    - `src/app/recommendations-component/recommendations-component.component.scss`
-
-
-
-- All components in the NDE are intended to be customizable. However, if you encounter a component that does not support customization, please open a support case with us. This helps ensure that we can address the issue and potentially add customization support for that component in future updates.
-
-### Accessing host component instance
-
-You can get the instance of the component your custom component is hooked to by adding this property to your component class:
-
-```angular2html
-@Input() private hostComponent!: any;
-```
-
-### Accessing app state
-
-- You can gain access to the app state which is stored on an NGRX store by injecting the Store service to your component:
-
-```angular2html
-private store = inject(Store);
-```
-
-- Create selectors. For example: 
-
-```angular2html
-const selectUserFeature = createFeatureSelector<{isLoggedIn: boolean}>('user');
-const selectIsLoggedIn = createSelector(selectUserFeature, state => state.isLoggedIn);
-```
-
-- Apply selector to the store to get state as Signal:
-
-```angular2html
-isLoggedIn = this.store.selectSignal(selectIsLoggedIn);
-```
-
-Or as Observable:
-
-```angular2html
-isLoggedIn$ = this.store.select(selectIsLoggedIn);
-```
-
 ### Translating from code tables 
 
 You can translate codes in your custom component by using ngx-translate (https://github.com/ngx-translate/core).
@@ -180,9 +115,6 @@ You can translate codes in your custom component by using ngx-translate (https:/
 
 The NDE theming is based on Angular Material. 
 We allow via the view configuration to choose between a number of pre built themes.
-
-![prebuilt theme image](./readme-files/prebuilt-themes.png "prebuilt themes configuration")
-
 
 If you want to create your own theme instead of using one of our options follow these steps:
 
@@ -218,96 +150,6 @@ To apply the theme go to `_customized-theme.scss` and uncomment the following li
 ```
 ---
 
-
-
-## Developing an Add-On for the NDE UI
-
-The NDE UI supports loading of custom modules at runtime and also provides infrastructure to dynamically load add-ons developed by vendors, consortia, or community members. This enables seamless integration, allowing institutions to configure and deploy external add-ons through **Add-On Configuration in Alma**.
-
-The NDE UI add-on framework allows various stakeholders to develop and integrate custom functionality:
-
-- **Vendors** can create and host services that institutions can seamlessly incorporate into their environment.
-- **Institutions and consortia** can develop and share custom components, enabling consistency and collaboration across multiple libraries.
-
-Library staff can easily add, configure, and manage these add-ons through Alma, following guidelines provided by the stakeholders. These typically include:
-
-- **Add-on Name** – The identifier used in Alma’s configuration.
-- **Add-on URL** – The location where the add-on is hosted (static folder to load the add-on at runtime).
-- **Configuration Parameters** – JSON-based config parameters to be referenced at runtime by the add-on.
-
-![Add-on Overview](./readme-files/addon-overview.png)
-
----
-
-## Guidelines for Developing an Add-On
-
-You can download the custom module and modify it to function as an add-on.
-
-### Set Add-on Name
-
-This section below should remain the same.
-
-![Set Addon Name](./readme-files/set-addon-name.png)
-
-![Example Configuration JSON](./readme-files/example-config-json.png)
-
----
-
-The add-on infrastructure provides a way to access institution-specific configuration parameters. Institutions can upload their configuration settings in JSON format, which your add-on can reference dynamically within its components.
-
-### 🔧 Accessing Add-On Configuration Parameters
-
-To access the module parameters from your configuration file, inject the `LookupService` in your component and use `getModuleParam()`:
-
-```ts
-constructor(private lookupService: LookupService) {}
-
-ngOnInit() {
-  const paramValue = this.lookupService.getModuleParam('yourParamKey');
-}
-```
-
-> 📘 `yourParamKey` should match the keys defined in your Alma Add-on JSON configuration.
-
----
-
-If your add-on includes assets such as images, you can ensure a complete separation between the frontend code and asset deployment. To achieve this, set `ASSET_BASE_URL` to point to your designated static folder, allowing your add-on to reference assets independently of the core application.
-
-![Access Assets via ASSET_BASE_URL](./readme-files/access-assets.png)
-
-
-The `autoAssetSrc` directive automatically prepends `ASSET_BASE_URL` to your `[src]` attribute.
-
-### Example:
-```html
-<img autoAssetSrc [src]="'assets/images/logo.png'" />
-```
-
-With:
-```env
-ASSET_BASE_URL=http://il-urm08.corp.exlibrisgroup.com:4202/
-```
-
-Results in:
-```html
-<img src="http://il-urm08.corp.exlibrisgroup.com:4202/assets/images/logo.png" />
-```
-
-### Supported Elements:
-- `<img>`
-- `<source>`
-- `<video>`
-- `<audio>`
-
-> ✅ Always use `[src]="'relative/path'"` to ensure proper asset URL injection.
-
----
-
-
-
-
----
-
 ## Recommended Development Environment
 
 To ensure smooth development, debugging, and code management, we recommend setting up your environment with the following tools:
@@ -322,19 +164,6 @@ To ensure smooth development, debugging, and code management, we recommend setti
     - `Prettier - Code formatter`
     - `Path Intellisense`
     - `Material Icon Theme` (optional for better visuals)
-
-- **WebStorm**  
-  A powerful alternative with built-in Angular and TypeScript support.  
-  [Download WebStorm](https://www.jetbrains.com/webstorm/)
-
-- **IntelliJ IDEA**  
-  A full-featured IDE by JetBrains. Ideal if you’re also working with Java backend.  
-  [Download IntelliJ IDEA](https://www.jetbrains.com/idea/)
-
-- **Eclipse IDE**  
-  Suitable for full-stack development including Angular with the right plugins.  
-  [Download Eclipse](https://www.eclipse.org/downloads/)
-
 ---
 
 ### 🔧 Tools & Utilities
@@ -400,20 +229,3 @@ To ensure smooth development, debugging, and code management, we recommend setti
 2. Go to the **Manage Customization Package** tab.
 3. Upload your zipped package in the **Customization Package** field and save.
 4. Refresh the front-end to see your changes.
-
-
----
-
-## Additional Resources
-
-### Live Demo Tutorial
-- **Customize Primo NDE UI**: Watch our live demo on YouTube for a visual guide on how to customize the Primo NDE UI:
-  [Customize Primo NDE UI: Live Demo](https://www.youtube.com/watch?v=z06l2hJYuLc)
-
-
-
----
-
-## Conclusion
-By following these steps, you can customize and extend the NDE interface using the `CustomModule` package. If you have any questions or run into issues, refer to the project documentation or the ExLibris support.
-
