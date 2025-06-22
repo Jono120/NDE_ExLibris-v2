@@ -3,7 +3,6 @@
 
 @use 'sass:map';
 @use '@angular/material' as mat;
-//@import 'material-icons/iconfont/material-icons.scss';
 
 // Note: Color palettes are generated from primary: #2F8D40, secondary: #3E9C4F, tertiary: #349245, neutral: #3E8C4F
 $_palettes: (
@@ -150,6 +149,33 @@ $light-theme: mat.define-theme((
   ),
 ));
 
-$material-icons-font-path: './' !default;
-$material-icons-font-size: 24px !default;
-$material-icons-font-display: block !default;
+// $material-icons-font-path: './' !default;
+// $material-icons-font-size: 24px !default;
+// $material-icons-font-display: block !default;
+
+/* Assuming the icons use the class 'material-icons' */
+.material-symbols-outlined {
+    font-weight: normal; /* Remove bold styling */
+    color: var(--md-sys-color-primary); /* Use Material 3 primary color */
+    font-size: var(--md-sys-typescale-body1-font-size); /* Use Material 3 font size */
+}
+/* Add your custom styles below */
+.menu-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 0;
+}
+
+.menu-listitem {
+    flex: 1 1 150px;
+    width: 100%;
+    text-align: center;
+}
+
+.icon-center {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
