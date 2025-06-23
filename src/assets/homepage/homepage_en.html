@@ -14,77 +14,68 @@
 
 <body>
     <main class="main-landing-page display-flex flex-column flex-layout-center-center">
-        <div class="menu-container width-100">
-            <ul role="list" class="menu width-100" style="display: flex; flex-wrap: wrap; justify-content: stretch; align-items: stretch; gap: 1rem; padding: 0; width: 100%;">
-                <li role="listitem" style="flex: 1 1 180px; min-width: 180px; max-width: 100%; display: flex; align-items: stretch; justify-content: stretch; padding: 0;">
-                    <div class="icon display-flex" style="justify-content: center; width: 100%; text-align: center;">
-                        <a id="Opening_hours_link" aria-label="Opening hours" role="button">
-
-                            <span class="material-symbols-outlined" aria-hidden="true" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">schedule</span>
-
-                            <span style="margin-top: 0.5rem;"
-                                href="https://www.wgtn.ac.nz/library/about-us/our-libraries/hours-for-the-year"
-                                target="_blank" rel="noopener"
-                                style="flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%; width: 100%; text-decoration: none; background: --md-sys-color-primary; color: --md-sys-color-secondary; border: none; border-radius: 8px; padding: 1.2rem 0.5rem; text-decoration: none; font-weight: --md-sys-typescale-body1-font-size; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; cursor: pointer;">Opening
-                                hours</span>
-                        </a>
-                    </div>
+        <!-- testing a different navbar -->
+        <nav class="navbar" style="width: 100%;">
+            <ul class="navbar-menu"
+                style="display: flex; flex-wrap: wrap; gap: 1rem; padding: 0; margin: 0; list-style: none; width: 100%;">
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Opening_hours_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/about-us/our-libraries/hours-for-the-year" target="_blank" rel="noopener" 
+                        aria-label="Opening hours"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: #00531a; color: #f1fdec; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">schedule</span>
+                        <span style="margin-top: 0.5rem;">Opening hours</span>
+                    </a>
                 </li>
-                <li role="listitem" style="flex: 1 1 180px; min-width: 180px; max-width: 100%; display: flex; align-items: stretch; justify-content: stretch; padding: 0;">
-                    <div class="icon display-flex" style="justify-content: center; width: 100%; text-align: center;">
-                        <a id="FAQ_link" aria-label="FAQ" role="button">
-
-                            <span class="material-symbols-outlined" aria-hidden="true" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">contact_support</span>
-
-                            <span style="margin-top: 0.5rem;"
-                                href="https://www.wgtn.ac.nz/library/about-us/our-libraries/hours-for-the-year"
-                                target="_blank" rel="noopener"
-                                style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: --md-sys-color-primary; color: --md-sys-color-secondary; border: none; border-radius: 8px; padding: 1.2rem 0.5rem; text-decoration: none; font-weight: --md-sys-typescale-body1-font-size; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; cursor: pointer;">FAQ</span>
-                        </a>
-                    </div>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="FAQ_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/services/faq" target="_blank" rel="noopener"  aria-label="FAQ" 
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: var(--md-sys-color-primary); color: var(--md-sys-color-primary); text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">contact_support</span>
+                        <span style="margin-top: 0.5rem;">FAQ</span>
+                    </a>
                 </li>
-                <li role="listitem" style="flex: 1 1 180px; min-width: 180px; max-width: 100%; display: flex; align-items: stretch; justify-content: stretch; padding: 0;">
-                    <div class="icon display-flex" style="justify-content: center; width: 100%; text-align: center;">
-                        <a id="Ask_a_librarian_link" aria-label="Ask a librarian" role="button">
-
-                            <span class="material-symbols-outlined" aria-hidden="true" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">person_raised_hand</span>
-
-                            <span style="margin-top: 0.5rem;" href="https://www.wgtn.ac.nz/library/teach/find-your-subject-librarian"
-                                target="_blank" rel="noopener"
-                                style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: --md-sys-color-primary; color: --md-sys-color-secondary; border: none; border-radius: 8px; padding: 1.2rem 0.5rem; text-decoration: none; font-weight: --md-sys-typescale-body1-font-size; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; cursor: pointer;">Ask
-                                a librarian</span>
-                        </a>
-                    </div>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Ask_a_librarian_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/teach/find-your-subject-librarian" target="_blank" rel="noopener" 
+                        aria-label="Ask a librarian" 
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: #00531a; color: #f1fdec; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">person_raised_hand</span>
+                        <span style="margin-top: 0.5rem;">Ask a librarian</span>
+                    </a>
                 </li>
-                <li role="listitem" style="flex: 1 1 180px; min-width: 180px; max-width: 100%; display: flex; align-items: stretch; justify-content: stretch; padding: 0;">
-                    <div class="icon display-flex" style="justify-content: center; width: 100%; text-align: center;">
-                        <a id="Search_tips_link" aria-label="Search tips" role="button">
-                
-                            <span class="material-symbols-outlined" aria-hidden="true" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">search</span>
-                
-                            <span style="margin-top: 0.5rem;"
-                                href="https://www.wgtn.ac.nz/library/study-and-assignments/searching-for-resources" target="_blank"
-                                rel="noopener"
-                                style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: --md-sys-color-primary; color: --md-sys-color-secondary; border: none; border-radius: 8px; padding: 1.2rem 0.5rem; text-decoration: none; font-weight: normal; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; cursor: pointer;">Search
-                                tips</span>
-                        </a>
-                    </div>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Search_tips_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/study-and-assignments/searching-for-resources" target="_blank" rel="noopener" 
+                        aria-label="Search tips" 
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: var(--md-sys-color-primary); color: var(--md-sys-color-primary); text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">search</span>
+                        <span style="margin-top: 0.5rem;">Search tips</span>
+                    </a>
                 </li>
-                <li role="listitem" style="flex: 1 1 180px; min-width: 180px; max-width: 100%; display: flex; align-items: stretch; justify-content: stretch; padding: 0;">
-                    <div class="icon display-flex" style="justify-content: center; min-width: 100%; width: 100%; text-align: center;">
-                        <a id="Study_room_link" aria-label="Study room" role="button">
-
-                            <span class="material-symbols-outlined" aria-hidden="true" style="font-size: clamp(2.5rem, 6vw, 3.5rem);">meeting_room</span>
-
-                            <span style="margin-top: 0.5rem;"
-                                href="https://www.wgtn.ac.nz/library/study-and-assignments/book-a-group-study-room" target="_blank"
-                                rel="noopener"
-                                style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: --md-sys-color-primary; color: --md-sys-color-secondary; border: none; border-radius: 8px; padding: 1.2rem 0.5rem; text-decoration: none; font-weight: normal; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; cursor: pointer;">Study room</span>
-                        </a>
-                    </div>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Study_room_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/study-and-assignments/book-a-group-study-room" target="_blank" rel="noopener"
+                        aria-label="Study room"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: #00531a; color: #f1fdec; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">meeting_room</span>
+                        <span style="margin-top: 0.5rem;">Study room</span>
+                    </a>
                 </li>
+                <!-- Repeat for other buttons, changing href, icon, label, and optionally background color -->
+                <!-- Copy the below format to create a new button when needed -->
+                <!-- <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Study_room_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/study-and-assignments/book-a-group-study-room" target="_blank" rel="noopener"
+                        aria-label="Study room"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: var(--md-sys-color-secondary); color: var(--md-sys-color-primary); text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">meeting_room</span>
+                        <span style="margin-top: 0.5rem;">Study room</span>
+                    </a>
+                </li> -->
             </ul>
-        </div>
+        </nav>
+
 
         <!-- Library Account Sign-in Information -->
         <div class="flex-row flex-layout-space-between welcome-announcements-container">
