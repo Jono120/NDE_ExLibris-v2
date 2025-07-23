@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -9,5 +9,210 @@
 </head>
 <body>
   <app-root></app-root>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Te Waharoa</title>
+    <link href="./homepage.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="script" src=".js/custom.js">
+</head>
+
+<!-- Below icons are using the Material 3 (Google Fonts) for displaying what they are connected with https://fonts.google.com/icons -->
+
+<body>
+    <main class="main-landing-page display-flex flex-column flex-layout-center-center">
+        <!-- testing a different navbar -->
+        <nav class="navbar" style="width: 100%;">
+            <ul class="navbar-menu"
+                style="display: flex; flex-wrap: wrap; gap: 1rem; padding: 0; margin: 0; list-style: none; width: 100%;">
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Opening_hours_link" class="navbar-btn"
+                        href="https://www.wgtn.ac.nz/library/about-us/our-libraries/hours-for-the-year" target="_blank"
+                        rel="noopener" aria-label="Opening hours"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: #00531a; color: #f1fdec; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">schedule</span>
+                        <span style="margin-top: 0.5rem;">Opening hours</span>
+                    </a>
+                </li>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="FAQ_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/services/faq"
+                        target="_blank" rel="noopener" aria-label="FAQ"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: var(--md-sys-color-primary); color: var(--md-sys-color-primary); text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">contact_support</span>
+                        <span style="margin-top: 0.5rem;">FAQ</span>
+                    </a>
+                </li>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Ask_a_librarian_link" class="navbar-btn"
+                        href="https://www.wgtn.ac.nz/library/teach/find-your-subject-librarian" target="_blank"
+                        rel="noopener" aria-label="Ask a librarian"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: #00531a; color: #f1fdec; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">person_raised_hand</span>
+                        <span style="margin-top: 0.5rem;">Ask a librarian</span>
+                    </a>
+                </li>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Search_tips_link" class="navbar-btn"
+                        href="https://www.wgtn.ac.nz/library/study-and-assignments/searching-for-resources"
+                        target="_blank" rel="noopener" aria-label="Search tips"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: var(--md-sys-color-primary); color: var(--md-sys-color-primary); text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">search</span>
+                        <span style="margin-top: 0.5rem;">Search tips</span>
+                    </a>
+                </li>
+                <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Study_room_link" class="navbar-btn"
+                        href="https://www.wgtn.ac.nz/library/study-and-assignments/book-a-group-study-room"
+                        target="_blank" rel="noopener" aria-label="Study room"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: #00531a; color: #f1fdec; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">meeting_room</span>
+                        <span style="margin-top: 0.5rem;">Study room</span>
+                    </a>
+                </li>
+                <!-- Repeat for other buttons, changing href, icon, label, and optionally background color -->
+                <!-- Copy the below format to create a new button when needed -->
+                <!-- <li style="flex: 1 1 200px; min-width: 150px;">
+                    <a id="Study_room_link" class="navbar-btn" href="https://www.wgtn.ac.nz/library/study-and-assignments/book-a-group-study-room" target="_blank" rel="noopener"
+                        aria-label="Study room"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 1rem 0.5rem; border-radius: 8px; background: var(--md-sys-color-secondary); color: var(--md-sys-color-primary); text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.07); transition: background 0.2s, box-shadow 0.2s; font-weight: 600;">
+                        <span class="material-symbols-outlined" aria-hidden="true"
+                            style="font-size: clamp(2.5rem, 6vw, 3.5rem);">meeting_room</span>
+                        <span style="margin-top: 0.5rem;">Study room</span>
+                    </a>
+                </li> -->
+            </ul>
+        </nav>
+
+        <!-- Library Account Sign-in Information -->
+        <div class="flex-row flex-layout-space-between welcome-announcements-container">
+            <div class="welcome display-flex flex-column flex-layout-start  display-flex flex-column width-auto">
+                <h2 aria-level="2" role="heading" class="welcome-title mat-headline-medium ">Nau mai haere mai! Welcome
+                    to the library!</h2>
+                <span class="welcome-content">Signing in to Te Waharoa gives you better access to the Library’s
+                    collections and to Te Waharoa’s tools.
+                    <br>Sign in to:</span>
+                <ul class="short-points">
+                    <li><span class="material-symbols-outlined vertical-middle" aria-hidden="true">description</span>
+                        Access full-text content</li>
+                    <li><span class="material-symbols-outlined vertical-middle" aria-hidden="true">star</span> Save
+                        searches and results</li>
+                    <li><span class="material-symbols-outlined vertical-middle" aria-hidden="true">autorenew</span>
+                        Renew items on loan</li>
+                    <li><span class="material-symbols-outlined vertical-middle"
+                            aria-hidden="true">notifications_active</span> Set up new content alerts</li>
+                    <li><span class="material-symbols-outlined vertical-middle"
+                            aria-hidden="true">import_contacts</span> Export citations to referencing software</li>
+                </ul>
+                <a id="myLibraryCard" tabindex="0" aria-label="Go to my library card" role="link">Go to my library
+                    card</a>
+            </div>
+            <div class="announcements display-flex flex-column">
+                <header class="flex-column gap-1">
+                    <!-- <h2 class="mat-title-medium" role="heading" aria-level="2">Announcements:</h2> -->
+                    <h3 role="heading" aria-level="3" class="announcements-item-title mat-headline-medium">Kia ora!
+                        Greetings!
+                    </h3>
+                </header>
+                <article>
+                    <p class="mat-body-large">Te Waharoa is the Library’s catalogue and discovery system. Use Te Waharoa
+                        to search the Library’s electronic and print resources, and directly access our electronic
+                        resources and subscriptions.
+                    </p>
+                    <p>Te Waharoa allows you to search across:</p>
+                    <ul>
+                        <li>
+                            <span class="material-symbols-outlined vertical-middle" aria-hidden="true">menu_book</span>
+                            Books
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined vertical-middle"
+                                aria-hidden="true">library_books</span> Journals
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined vertical-middle" aria-hidden="true">dns</span>
+                            Databases
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined vertical-middle" aria-hidden="true">school</span>
+                            Theses
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined vertical-middle" aria-hidden="true">movie</span>
+                            Streaming media
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined vertical-middle" aria-hidden="true">widgets</span>
+                            Other resources
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+
+        <!-- About the Library Section -->
+        <div class="flex-row flex-layout-space-between about display-flex flex-column width-auto">
+            <div class="about-content flex-row">
+                <div class="about-text flex-column flex-space-between ">
+                    <h2 role="heading" aria-level="2" class="about-text-title mat-headline-large">About the Library</h2>
+                    <p class="about-text-description"></p>
+                    <div class="help-sign-in-container flex-column gap-05">
+                        <span>Te Waharoa helps you manage your research. Sign in to:</span>
+                        <ul role="list">
+                            <li role="listitem">
+                                <img alt="Library image" src="assets/images/homePageImages/success.svg">
+                                <span> Reserve and renew books</span>
+                            </li>
+                            <li role="listitem">
+                                <img alt="Library image" src="assets/images/homePageImages/success.svg">
+                                <span> Create favorites lists</span>
+                            </li>
+                            <li role="listitem">
+                                <img alt="Library image" src="assets/images/homePageImages/success.svg">
+                                <span> Reserve and renew books</span>
+                            </li>
+                            <li role="listitem">
+                                <img alt="Library image" src="assets/images/homePageImages/success.svg">
+                                <span> View full search results</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image flex-layout-center-center">
+                    <img alt="" src="assets/images/homePageImages/about_image.svg">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer Section -->
+        <footer class="footer display-flex flex-column flex-layout-center-center">
+            <div class="footer-content display-flex flex-column flex-layout-center-center">
+                <p class="footer-text mat-body-large">&copy; 2025 Victoria University of Wellington. All rights reserved.</p>
+                <p class="footer-text mat-body-large">
+                    <a href="https://www.wgtn.ac.nz/site-info/privacy" target="_blank" rel="noopener"
+                        aria-label="Privacy statement"> Privacy statement
+                    </a> |
+                    <a href="https://www.wgtn.ac.nz/library/about-us/contact-us/"><span lang="en"
+                            style="display: inline;">Contact us</span><span lang="mi" style="display: none;">Whakapā
+                            mai</span></a> | <a
+                        href="https://www.wgtn.ac.nz/library/study-and-assignments/library-guides"><span lang="en"
+                            style="display: inline;">Library guides</span><span lang="mi" style="display: none;">Ngā
+                            arataki a te Pātaka Kōrero</span></a>
+                </p>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>

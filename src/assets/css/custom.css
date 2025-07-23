@@ -1,0 +1,15 @@
+/*
+requests-item-status-indication 
+this is for hiding the status indication in the resource requests page
+*/
+
+/* Current HTML view information:
+<div _ngcontent-ng-c2394743986="" data-qa="requests-item-status-indication" class="status-line margin-top-medium">
+<span _ngcontent-ng-c2394743986="">Acquisition</span>
+<span _ngcontent-ng-c2394743986="" class="ng-star-inserted">. In Review</span>
+</div>
+*/
+
+requests-item-status-indication {
+    display: hidden;
+}

@@ -8,3 +8,7 @@
  @include mat.all-component-colors(m3-theme.$light-theme);
  @include mat.system-level-colors(m3-theme.$light-theme);
 }
+
+.requests-item-status-indication {
+    display: hidden;
+}
