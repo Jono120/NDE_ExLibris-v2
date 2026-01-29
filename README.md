@@ -1,4 +1,7 @@
-# CustomModule
+# NDE Version
+This is the development of the Next Discovery Experience for Te Waharoa (Primo), it is developed based on the customisations and settings of the build packages from ExLibris.
+It is the first iteration of the new builds based on this user experience, and there will be future additions made to these.
+
 
 ## ✨ New Feature (9th November 2025): Support for all customization files in assets folder:
 All files that are you are able to customize through the assets folder of your customization package are now supported for preview when using the custom module in proxy mode.
@@ -217,9 +220,6 @@ You can translate codes in your custom component by using ngx-translate (https:/
 The NDE theming is based on Angular Material. 
 We allow via the view configuration to choose between a number of pre built themes.
 
-![prebuilt theme image](./readme-files/prebuilt-themes.png "prebuilt themes configuration")
-
-
 If you want to create your own theme instead of using one of our options follow these steps:
 
 1. Create a material 3 theme by running:
@@ -371,19 +371,6 @@ To ensure smooth development, debugging, and code management, we recommend setti
     - `Prettier - Code formatter`
     - `Path Intellisense`
     - `Material Icon Theme` (optional for better visuals)
-
-- **WebStorm**  
-  A powerful alternative with built-in Angular and TypeScript support.  
-  [Download WebStorm](https://www.jetbrains.com/webstorm/)
-
-- **IntelliJ IDEA**  
-  A full-featured IDE by JetBrains. Ideal if you’re also working with Java backend.  
-  [Download IntelliJ IDEA](https://www.jetbrains.com/idea/)
-
-- **Eclipse IDE**  
-  Suitable for full-stack development including Angular with the right plugins.  
-  [Download Eclipse](https://www.eclipse.org/downloads/)
-
 ---
 
 ### 🔧 Tools & Utilities
@@ -448,6 +435,7 @@ To ensure smooth development, debugging, and code management, we recommend setti
 1. In Alma, navigate to **Discovery > View List > Edit**.
 2. Go to the **Manage Customization Package** tab.
 3. Upload your zipped package in the **Customization Package** field and save.
+4. Refresh the front-end to see your changes.
 4. Refresh the front-end to see your changes.
 
 
