@@ -3,11 +3,26 @@ This is the development of the Next Discovery Experience for Te Waharoa (Primo),
 It is the first iteration of the new builds based on this user experience, and there will be future additions made to these.
 
 
+## ✨ New Feature (9th November 2025): Support for all customization files in assets folder:
+All files that are you are able to customize through the assets folder of your customization package are now supported for preview when using the custom module in proxy mode.
+
+For example to preview your brand logo you can now place your customized logo file in the following path in your local project:
+`src/assets/images/library-logo.png`
+
+To start proxy mode use the command:
+``` bash
+npm run start:proxy
+```
+
+---
+
 ### Overview
+
+
 The NDE Customization package offers options to enhance and extend the functionality of Primo’s New Discovery Experience (NDE). You can add and develop your own components, customize theme templates, and tailor the discovery interface to your specific needs.
 
 **Note:**
-<mark>This branch includes updates and other improvements that will be compatible with the April 2025 release of NDE. We will merge this branch to the main one when it is compatible with released version of NDE.</mark>
+<mark>This branch includes updates and other improvements that are compatible with the December 2025 release of NDE.</mark>
 
 **Note:**
 The NDE Customization package is currently available exclusively to Primo customers who have early access to the New Discovery Experience (NDE). Further availability will be announced in upcoming releases.
@@ -66,8 +81,8 @@ The NDE Customization package is currently available exclusively to Primo custom
 
 There are two options for setting up your local development environment: configuring a proxy or using parameter on your NDE URL.
 
-- **Option 1: Update `proxy.conf.mjs` Configuration**:
-  - Set the URL of the server you want to test your code with by modifying the `proxy.conf.mjs` file in the `./proxy` directory:
+- **Option 1: Update `proxy.const.mjs` Configuration**:
+  - Set the URL of the server you want to test your code with by modifying the proxy.const.mjs file in the ./proxy directory:
     ```javascript
     // Configuration for the development proxy
     const environments = {
@@ -97,6 +112,95 @@ There are two options for setting up your local development environment: configu
 
   
 ---
+
+## Step 4: Code Scaffolding and Customization
+
+### Add Custom Components
+1. Create custom components by running:
+    ```bash
+    ng generate component <ComponentName>
+    ```
+    Example:
+    ```bash
+    ng generate component RecommendationsComponent
+    ``` 
+
+2. Update `selectorComponentMap` in `customComponentMappings.ts` to connect the newly created components:
+    ```typescript
+    export const selectorComponentMap = new Map<string, any>([
+      ['nde-recommendations-before', RecommendationsComponentBefore],
+      ['nde-recommendations-after', RecommendationsComponentAfter],
+      ['nde-recommendations-top', RecommendationsComponentTop],
+      ['nde-recommendations-bottom', RecommendationsComponentBottom], 	  
+      ['nde-recommendations', RecommendationsComponent],
+      // Add more pairs as needed
+    ]);
+    ```
+
+3. Customize the component’s `.html`, `.ts`, and `.scss` files as needed:
+    - `src/app/recommendations-component/recommendations-component.component.html`
+    - `src/app/recommendations-component/recommendations-component.component.ts`
+    - `src/app/recommendations-component/recommendations-component.component.scss`
+
+
+
+- All components in the NDE are intended to be customizable. However, if you encounter a component that does not support customization, please open a support case with us. This helps ensure that we can address the issue and potentially add customization support for that component in future updates.
+
+### Accessing host component instance
+
+You can get the instance of the component your custom component is hooked to by adding this property to your component class:
+
+```angular2html
+@Input() private hostComponent!: any;
+```
+
+### Accessing app state
+
+- You can gain access to the app state which is stored on an NGRX store by injecting the Store service to your component:
+
+```angular2html
+private store = inject(Store);
+```
+
+- Create selectors. For example: 
+
+```angular2html
+const selectUserFeature = createFeatureSelector<{isLoggedIn: boolean}>('user');
+const selectIsLoggedIn = createSelector(selectUserFeature, state => state.isLoggedIn);
+```
+
+- Apply selector to the store to get state as Signal:
+
+```angular2html
+isLoggedIn = this.store.selectSignal(selectIsLoggedIn);
+```
+
+Or as Observable:
+
+```angular2html
+isLoggedIn$ = this.store.select(selectIsLoggedIn);
+```
+
+### Accessing app router
+
+- You can gain access to the app router service by injecting the SHELL_ROUTER  injection token to your component:
+
+```angular2html
+import {SHELL_ROUTER} from "../../injection-tokens"; //the import path may vary on your project
+private router = inject(SHELL_ROUTER);
+```
+
+- Listening for router navigation events. For example:
+
+```angular2html
+this.routerSubscription = this.router.events.subscribe((event) => {
+    if (event instanceof NavigationEnd) {
+        console.log('Tracking PageView: ', event.urlAfterRedirects);
+    }
+});
+```
+
+
 
 ### Translating from code tables 
 
@@ -148,6 +252,109 @@ To apply the theme go to `_customized-theme.scss` and uncomment the following li
   @include mat.system-level-colors(m3-theme.$light-theme);
 }
 ```
+---
+
+
+
+## Developing an Add-On for the NDE UI
+
+The NDE UI supports loading of custom modules at runtime and also provides infrastructure to dynamically load add-ons developed by vendors, consortia, or community members. This enables seamless integration, allowing institutions to configure and deploy external add-ons through **Add-On Configuration in Alma**.
+
+The NDE UI add-on framework allows various stakeholders to develop and integrate custom functionality:
+
+- **Vendors** can create and host services that institutions can seamlessly incorporate into their environment.
+- **Institutions and consortia** can develop and share custom components, enabling consistency and collaboration across multiple libraries.
+
+Library staff can easily add, configure, and manage these add-ons through Alma, following guidelines provided by the stakeholders. These typically include:
+
+- **Add-on Name** – The identifier used in Alma’s configuration.
+- **Add-on URL** – The location where the add-on is hosted (static folder to load the add-on at runtime).
+- **Configuration Parameters** – JSON-based config parameters to be referenced at runtime by the add-on.
+
+![Add-on Overview](./readme-files/addon-overview.png)
+
+---
+
+## Guidelines for Developing an Add-On
+
+You can download the custom module and modify it to function as an add-on.
+
+### Set Add-on Name
+
+This section below should remain the same.
+
+![Set Addon Name](./readme-files/set-addon-name.png)
+
+![Example Configuration JSON](./readme-files/example-config-json.png)
+
+---
+
+The add-on infrastructure provides a way to access institution-specific configuration parameters. Institutions can upload their configuration settings in JSON format, which your add-on can reference dynamically within its components.
+
+### 🔧 Accessing Add-On Configuration Parameters
+
+Use Angular DI to inject the parameters directly into your component via the `MODULE_PARAMETERS` token:
+
+```ts
+import { Component, Inject } from '@angular/core';
+
+@Component({
+  selector: 'custom-test-bottom',
+  host: { 'data-component-id': 'custom-test-bottom-unique' },
+  templateUrl: './test-bottom.component.html',
+  styleUrls: ['./test-bottom.component.scss']
+})
+export class TestBottomComponent {
+  constructor(@Inject('MODULE_PARAMETERS') public moduleParameters: any) {
+    console.log('Module parameters TestBottomComponent:', this.moduleParameters);
+  }
+
+  getKeys(obj: any): string[] {
+    return Object.keys(obj || {});
+  }
+}
+
+```
+
+> 📘 `yourParamKey` should match the keys defined in your Alma Add-on JSON configuration.
+
+---
+
+If your add-on includes assets such as images, you can ensure a complete separation between the frontend code and asset deployment. To achieve this, set `ASSET_BASE_URL` to point to your designated static folder, allowing your add-on to reference assets independently of the core application.
+
+![Access Assets via ASSET_BASE_URL](./readme-files/access-assets.png)
+
+
+The `autoAssetSrc` directive automatically prepends `ASSET_BASE_URL` to your `[src]` attribute.
+
+### Example:
+```html
+<img autoAssetSrc [src]="'assets/images/logo.png'" />
+```
+
+With:
+```env
+ASSET_BASE_URL=http://il-urm08.corp.exlibrisgroup.com:4202/
+```
+
+Results in:
+```html
+<img src="http://il-urm08.corp.exlibrisgroup.com:4202/assets/images/logo.png" />
+```
+
+### Supported Elements:
+- `<img>`
+- `<source>`
+- `<video>`
+- `<audio>`
+
+> ✅ Always use `[src]="'relative/path'"` to ensure proper asset URL injection.
+
+---
+
+
+
+
 ---
 
 ## Recommended Development Environment
@@ -229,3 +436,21 @@ To ensure smooth development, debugging, and code management, we recommend setti
 2. Go to the **Manage Customization Package** tab.
 3. Upload your zipped package in the **Customization Package** field and save.
 4. Refresh the front-end to see your changes.
+4. Refresh the front-end to see your changes.
+
+
+---
+
+## Additional Resources
+
+### Live Demo Tutorial
+- **Customize Primo NDE UI**: Watch our live demo on YouTube for a visual guide on how to customize the Primo NDE UI:
+  [Customize Primo NDE UI: Live Demo](https://www.youtube.com/watch?v=j6jAYkawDSM)
+
+
+
+---
+
+## Conclusion
+By following these steps, you can customize and extend the NDE interface using the `CustomModule` package. If you have any questions or run into issues, refer to the project documentation or the ExLibris support.
+
